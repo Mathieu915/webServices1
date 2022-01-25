@@ -1,0 +1,60 @@
+POST https://pdicost.univ-orleans.fr/.m1ws/enjoy/student
+Accept: */*
+Content-Type: application/x-www-form-urlencoded
+
+numeroEtudiant=o2180714
+
+###
+
+GET https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714
+
+###
+
+PUT https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/identity
+Content-Type: application/xml
+
+<identityData>
+    <nom>Clavie</nom>
+    <prenom>Mathieu</prenom>
+</identityData>
+
+###
+
+PATCH https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/location
+Content-Type: application/json
+
+{
+  "adresse" :  " adresse123456789"
+}
+
+###
+
+PATCH https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/location
+Content-Type: application/json
+
+{
+  "codePostal" :  " 45000"
+}
+
+###
+
+PATCH https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/location
+Content-Type: application/json
+
+{
+  "ville" :  " Orleans"
+}
+
+###
+
+GET https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/token
+
+###
+
+POST https://pdicost.univ-orleans.fr/.m1ws/enjoy/student/o2180714/token
+Accept: */*
+Content-Type: application/x-www-form-urlencoded
+token:IE9ybGVhbnMgYWRyZXNzZTEyMzQ1Njc4OTQ1MDAwQ2xhdmllTWF0aGlldW8yMTgwNzE0
+
+
+
