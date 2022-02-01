@@ -1,0 +1,41 @@
+POST http://localhost:8080/mpws/etudiant
+Content-Type: application/x-www-form-urlencoded
+
+nom=Boichut&prenom=Yohan&adresse=Somewhere in Orleans
+
+> {%
+client.global.set("numeroEtudiant", response.headers.valueOf("location"));
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "L'étudiant aurait dû être créé");
+});
+%}
+###
+
+GET http://localhost:8080{{numeroEtudiant}}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "L'étudiant aurait dû être retrouvé !");
+});
+%}
+###
+
+GET http://localhost:8080/mpws/etudiant/aucunechance
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 404, "L'étudiant n'aurait pas dû être retrouvé");
+});
+%}
+###
+
+
+GET http://localhost:8080/mpws/etudiant
+
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Les étudiants aurait dû être récupérés");
+});
+%}
+###

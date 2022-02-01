@@ -11,7 +11,7 @@ PUT http://localhost:8080/motus/partie
 tokenPartie:7VUxIdGYqFVK7U8EjMgeyAa1INF/51qDy8ad79SDlK/tt+grHn3QpHeaxkz1clMDCRzrWrlnG47DvyGZg9UynsSuMaDgua4OWN5h/ySw7Cc=
 Content-Type: application/x-www-form-urlencoded
 
-proposition="cococ"
+proposition=cococ
 
 ###
 
