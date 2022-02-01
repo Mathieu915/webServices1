@@ -1,0 +1,25 @@
+POST http://localhost:8080/motus/joueur?pseudo=Mathieu
+
+###
+
+POST http://localhost:8080/motus/partie
+token:E4WLMj1CzTVy8m8Ei5WNxVv2g8yOE9QPXg9yGh5UvCC3er7xx+XbIcXR14rtC5eInV74V9mIeZU09+gf2KM6zg==
+
+###
+
+PUT http://localhost:8080/motus/partie
+tokenPartie:7VUxIdGYqFVK7U8EjMgeyAa1INF/51qDy8ad79SDlK/tt+grHn3QpHeaxkz1clMDCRzrWrlnG47DvyGZg9UynsSuMaDgua4OWN5h/ySw7Cc=
+Content-Type: application/x-www-form-urlencoded
+
+proposition="cococ"
+
+###
+
+GET http://localhost:8080/motus/partie
+tokenPartie:7VUxIdGYqFVK7U8EjMgeyAa1INF/51qDy8ad79SDlK/tt+grHn3QpHeaxkz1clMDCRzrWrlnG47DvyGZg9UynsSuMaDgua4OWN5h/ySw7Cc=
+
+###
+
+GET http://localhost:8080/motus/partie/nbcoups
+tokenPartie:7VUxIdGYqFVK7U8EjMgeyAa1INF/51qDy8ad79SDlK/tt+grHn3QpHeaxkz1clMDCRzrWrlnG47DvyGZg9UynsSuMaDgua4OWN5h/ySw7Cc=
+
