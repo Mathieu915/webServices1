@@ -1,6 +1,6 @@
-package fr.orleans.m1.wsi.monpremierwebservice.modele;
+package fr.orleans.m1.wsi.tp2.modele;
 
-import fr.orleans.m1.wsi.monpremierwebservice.modele.exceptions.EtudiantInexistantException;
+import fr.orleans.m1.wsi.tp2.modele.exceptions.EtudiantInexistantException;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package fr.orleans.m1.wsi.monpremierwebservice;
+package fr.orleans.m1.wsi.tp2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

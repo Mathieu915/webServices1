@@ -1,4 +1,4 @@
-package fr.orleans.m1.wsi.monpremierwebservice.modele;
+package fr.orleans.m1.wsi.tp2.modele;
 
 import java.util.UUID;
 

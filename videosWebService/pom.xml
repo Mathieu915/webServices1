@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>fr.orleans.m1.wsi</groupId>
-    <artifactId>monPremierWebService</artifactId>
+    <artifactId>videosWebService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>monPremierWebService</name>
-    <description>monPremierWebService</description>
+    <name>videosWebService</name>
+    <description>videosWebService</description>
     <properties>
         <java.version>17</java.version>
     </properties>
