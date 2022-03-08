@@ -22,11 +22,11 @@ public class FacadeVideos {
         videos = new ArrayList<>();
     }
 
-    public String enregistrerUser(String nom, String pwd) throws UtilisateurDejaExistantException {
+    public User enregistrerUser(String nom, String pwd) throws UtilisateurDejaExistantException {
         if(!users.containsKey(nom)){
             User user = new User(nom, pwd);
             users.put(nom, user);
-            return user.getNumUser();
+            return user;
         }
         else {
             throw new UtilisateurDejaExistantException();
@@ -42,6 +42,7 @@ public class FacadeVideos {
             }
             Video video = new Video(url, titre, description, nom);
             videos.add(video);
+            users.get(nom).addVideo(video);
             return titre;
         }
         else {
@@ -93,6 +94,7 @@ public class FacadeVideos {
         }
     }
 
+
     public String supprimerVideoPlaylist(String video, String playlist, String nom, String pwd) throws MauvaisIdentifiantsException {
         if(users.containsKey(nom) && users.get(nom).getPwd().equals(pwd)){
             for(Playlist p : users.get(nom).getPlaylists()){
@@ -119,5 +121,27 @@ public class FacadeVideos {
             }
         }
         throw new MauvaisIdentifiantsException();
+    }
+
+    public List<Video> getVideos(){
+        return this.videos;
+    }
+
+    public List<Video> getVideosParUser(String nom, String pwd) throws MauvaisIdentifiantsException {
+        if(users.containsKey(nom) && users.get(nom).getPwd().equals(pwd)){
+            return users.get(nom).getMesVideos();
+        }
+        else {
+            throw new MauvaisIdentifiantsException();
+        }
+    }
+
+    public List<Playlist> getPlaylistUser(String nom, String pwd) throws MauvaisIdentifiantsException {
+        if(users.containsKey(nom) && users.get(nom).getPwd().equals(pwd)){
+            return users.get(nom).getPlaylists();
+        }
+        else {
+            throw new MauvaisIdentifiantsException();
+        }
     }
 }

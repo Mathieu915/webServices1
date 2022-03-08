@@ -9,11 +9,14 @@ public class User {
     private String nom;
     private String pwd;
     private List<Playlist> playlists;
+    private List<Video> mesVideos;
 
     public User(String nom, String pwd) {
         this.numUser = UUID.randomUUID().toString();
         this.nom = nom;
         this.pwd = pwd;
+        this.playlists = new ArrayList<>();
+        this.mesVideos = new ArrayList<>();
     }
 
     public String getNom() {
@@ -60,5 +63,17 @@ public class User {
             }
         }
         playlists = newList;
+    }
+
+    public List<Video> getMesVideos() {
+        return mesVideos;
+    }
+
+    public void setMesVideos(List<Video> mesVideos) {
+        this.mesVideos = mesVideos;
+    }
+
+    public void addVideo(Video video){
+        this.mesVideos.add(video);
     }
 }

@@ -1,0 +1,64 @@
+### Ajouter un nouvel utilisateur
+POST http://localhost:8080/videows/user
+Content-Type: application/x-www-form-urlencoded
+
+nom=Mathieu&pwd=mdptest
+
+> {%
+client.global.set("locationUser", response.headers.valueOf("Location"));
+client.global.set("nomUser", response.headers.valueOf("nom"));
+client.global.set("pwdUser", response.headers.valueOf("pwd"));
+client.global.set("numUser", response.headers.valueOf("num"));
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "L'utilisateur aurait dû être créé");
+});
+%}
+
+###
+GET {{locationUser}}?nom={{nomUser}}&pwd={{pwdUser}}
+
+###
+POST http://localhost:8080/videows/video
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&titre=titre123456789&description=une sympathique video&url=titre1
+
+###
+POST http://localhost:8080/videows/user/{{numUser}}/playlist
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&titre=playlist1
+
+###
+POST http://localhost:8080/videows/user/{{numUser}}/playlist
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&titre=playlist2
+
+###
+DELETE http://localhost:8080/videows/user/{{numUser}}/playlist
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&titre=playlist1
+
+###
+POST http://localhost:8080/videows/user/{{numUser}}/playlist/playlist1
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&video=titre123456789
+
+###
+DELETE http://localhost:8080/videows/user/{{numUser}}/playlist/playlist1
+Content-Type: application/x-www-form-urlencoded
+
+nom={{nomUser}}&pwd={{pwdUser}}&video=titre123456789
+
+###
+GET http://localhost:8080/videows/video
+
+###
+GET http://localhost:8080/videows/user/{{numUser}}/video?nom={{nomUser}}&pwd={{pwdUser}}
+
+###
+GET http://localhost:8080/videows/user/{{numUser}}/playlist?nom={{nomUser}}&pwd={{pwdUser}}
+
